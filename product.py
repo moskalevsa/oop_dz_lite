@@ -44,18 +44,7 @@ class Product:
     def __str__(self):
         return f'Товар:\n - Название товара: -  {self.__name},\n - цена: {self.__price} руб.'
     
-    # Создание товаров
-print('Создание товаров для заказов -----------------------------')
-car_charger = Product('Car Charger 100W', 1228.0)
-print(car_charger)
-usb_type_C_charging = Product('Зарядка USB + Type-C', 769.0)
-print(usb_type_C_charging)
-fm_transmitter  = Product('FM модулятор с Bluetooth в машину', 1194.0)
-print(fm_transmitter)
-bluetooth_modulator = Product('модулятор блютуз в машину', 1439.0)
-print(bluetooth_modulator)
-laptop_work_14_SSD = Product('Ноутбук для работы SD-256GB', 15400.0)   
-print(laptop_work_14_SSD)
+
     
         
 

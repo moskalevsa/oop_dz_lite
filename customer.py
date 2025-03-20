@@ -1,4 +1,3 @@
-from product import order_1, order_2
 class Customer:
     """Класс, представляющий клиента.
        Атрибуы:
@@ -11,7 +10,7 @@ class Customer:
        методы :
         - add_order для поплнения списка заказов клиента парметр - сисок добавляемых заказов
         - del_order для удаления заказов из списка заказов клиента парметр - сисок удаляемых заказов
-        
+      
     """
     def __init__(self, name: str, orders: list):
         self.__name = name
@@ -32,10 +31,10 @@ class Customer:
         self.__orders.extend(add_orders)   
     
     #Удаление списка товаров из заказа 
-    def del_jrder (self, del_orders: list):
+    def del_order (self, del_orders: list):
         for order in del_orders:
-            if order in self.__orderss:
-                self.__poducts.remove(order)     
+            if order in self.__orders:
+                self.__orders.remove(order)     
     
     # Получение списка товаров заказа
     def get_orders(self):
