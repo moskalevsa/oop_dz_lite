@@ -21,6 +21,11 @@ class Product:
         self.__name = name
         self.__price = price
         
+    def __eq__(self, other):
+        return self.__price == other.price
+    def __lt__(self, other):
+        return self.__price < other.price
+        
     # свойство-геттер name
     @property
     def name(self):
