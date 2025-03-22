@@ -12,9 +12,11 @@ class Order:
         - add_product для поплнения списка товаров заказа -  парметр сисок добавляемых товаров
         - del_product для удаления товаров из списка товаров заказа - парметр сисок удаляемых товаров      
     """ 
+    
     def __init__(self, code: str, products: list):
         self.__code = code
         self.__poducts = products
+              
   
 # свойство-геттер code
     @property
@@ -38,7 +40,22 @@ class Order:
     
     # Получение списка товаров заказа
     def get_products(self):
-        return self.__poducts    
+        return self.__poducts  
+    
+    @classmethod
+    def get_total_number_orders(cls, customers: list ):
+        total_number_orders = 0
+        for cust in customers:
+            total_number_orders += len(cust.get_orders())
+        return total_number_orders
+    
+    @classmethod
+    def get_total_cost_orders(cls, customers: list, discount, key: str ):
+        total_cost_order =0
+        for cust in customers:
+            total_cost_order += discount.get_customer_discounted_cost(cust, key)
+        return total_cost_order    
+      
     
     def __str__(self):
         return f'Заказ:\n - код заказа: -  {self.__code},\n - Количество товаров: {len(self.__poducts)}'

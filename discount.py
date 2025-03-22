@@ -19,6 +19,11 @@ class Discount:
         - get_customer_discounted_price получить цену товаров заказов клиента  по указанной скидке
      
     """
+    @staticmethod
+    def get_discount_price (price : float, disc : dict, key):
+        if key in disc:
+            disc_price = price * disc.get(key)/100 
+        return disc_price
    
     def __init__(self, discounts : dict):
         self.__discounts = {}
@@ -35,11 +40,11 @@ class Discount:
     def get_discounts(self):
         return self.__discounts       
     
-    def get_product_discounted_price (self, product: Product, key: str):
+    def get_product_discounted_cost (self, product: Product, key: str):
         if key in self.__discounts:
             return product.price * self.__discounts.get(key)/100  
         
-    def get_order_discounted_price(self, order: Order, key: str ):
+    def get_order_discounted_cost(self, order: Order, key: str ):
         ord_products = order.get_products()
         ord_discount_price = 0
         if key in self.__discounts:
@@ -50,7 +55,7 @@ class Discount:
             ord_discount_price +=  product.price * discount
         return ord_discount_price
           
-    def get_customer_discounted_price (self, customer: Customer, key: str ):
+    def get_customer_discounted_cost (self, customer: Customer, key: str ):
         cust_orders = customer.get_orders()
         cust_orders_discount_price = 0
         if key in self.__discounts:
@@ -61,7 +66,11 @@ class Discount:
             ord_products = order.get_products()           
             for product in ord_products:
                 cust_orders_discount_price +=  product.price * discount
-        return cust_orders_discount_price 
+        return cust_orders_discount_price
+    
+    def __str__(self):
+        return(f'Скидки: \n {self.__discounts}')
+               
       
               
     
