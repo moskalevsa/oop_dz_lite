@@ -2,7 +2,7 @@ from product import Product
 from order import Order
 from customer import Customer
 from discount import Discount
-from pprint import pprint
+
 
 """
 1.	Создаются товары, заказы и клиенты.
